@@ -26,4 +26,9 @@ public class Dragging : BaseCockpitElement
         _currentRotation = Mathf.Clamp(_currentRotation, _data.MinRotation, _data.MaxRotation);
         transform.localRotation = Quaternion.Euler(_currentRotation, 0, 0);
     }
+    
+    public float GetNormalizedValue()
+    {
+        return Mathf.InverseLerp(_data.MinRotation, _data.MaxRotation, _currentRotation);
+    }
 }
