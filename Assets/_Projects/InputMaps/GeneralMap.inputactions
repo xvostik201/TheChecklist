@@ -1,0 +1,55 @@
+{
+    "version": 1,
+    "name": "GeneralMap",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "fd58c219-6813-408e-bdb9-7f54e54158ca",
+            "actions": [
+                {
+                    "name": "Look",
+                    "type": "Value",
+                    "id": "7702d6dd-d304-486d-9175-bb2df4403580",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "LeftMouse",
+                    "type": "Button",
+                    "id": "67d0e616-2f5a-4403-816e-939ed6d51a40",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "36b3f3a7-c55a-4f8e-acc6-2cdf2cbe043a",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "31895159-006e-4b73-821c-061f66836334",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftMouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
