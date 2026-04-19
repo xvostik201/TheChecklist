@@ -12,12 +12,11 @@ public class Button : BaseCockpitElement, IToggleable
     public bool IsActive => _isActive;
     public event Action<bool> OnStateChanged;
 
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start();
-        
+        base.Awake();
         _startLocalPositonZ = transform.localPosition.z;
-        if(_data != null)  _targetLocalPositonZ = _startLocalPositonZ + _data.TargetPositionZ;
+        if(_elementData != null)  _targetLocalPositonZ = _startLocalPositonZ + _elementData.TargetPositionZ;
     }
     public override void OnInteract()
     {
@@ -26,13 +25,13 @@ public class Button : BaseCockpitElement, IToggleable
         AnimateButton();
         
         OnStateChanged?.Invoke(_isActive);
-        Debug.Log($"{_data.ElementName} is now {(_isActive ? "ON" : "OFF")}");
+        // Debug.Log($"{_elementData.ElementName} is now {(_isActive ? "ON" : "OFF")}");
     }
 
     private void AnimateButton()
     {
         float finalRotation = _isActive ? _targetLocalPositonZ : _startLocalPositonZ;
 
-        transform.DOLocalMoveZ(finalRotation,  _data.AnimationDuration).SetEase(Ease.Linear);
+        transform.DOLocalMoveZ(finalRotation,  _elementData.AnimationDuration).SetEase(Ease.Linear);
     }
 }

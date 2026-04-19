@@ -11,9 +11,9 @@ public class Lever : BaseCockpitElement, IToggleable
     public event Action<bool> OnStateChanged;
     public bool IsActive => _isActive;
 
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start();
+        base.Awake();
         _startRotation = transform.localEulerAngles;
     }
 
@@ -24,13 +24,13 @@ public class Lever : BaseCockpitElement, IToggleable
         AnimateLever();
         
         OnStateChanged?.Invoke(_isActive);
-        Debug.Log($"{_data.ElementName} is now {(_isActive ? "ON" : "OFF")}");
+        // Debug.Log($"{_elementData.ElementName} is now {(_isActive ? "ON" : "OFF")}");
     }
 
     private void AnimateLever()
     {
-        Vector3 finalRotation = _isActive ? _data.TargetRotation : _startRotation;
+        Vector3 finalRotation = _isActive ? _elementData.TargetRotation : _startRotation;
 
-        transform.DOLocalRotate(finalRotation,  _data.AnimationDuration).SetEase(Ease.Linear);
+        transform.DOLocalRotate(finalRotation,  _elementData.AnimationDuration).SetEase(Ease.Linear);
     }
 }

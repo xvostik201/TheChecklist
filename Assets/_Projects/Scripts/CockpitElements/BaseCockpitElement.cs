@@ -6,25 +6,19 @@ using Zenject;
 
 public abstract class BaseCockpitElement : MonoBehaviour, IInteractable
 {
-    [SerializeField] protected string _elementID;
+    [SerializeField] protected CockpitElementData _elementData;
 
     protected bool _isActive = false;
 
     [Inject] protected ElementRegistry _elementRegistry;
-    protected CockpitElementData _data;
 
-    protected virtual void Start()
+    protected virtual void Awake()
     {
-        if(!_elementRegistry.GetElementData(_elementID))
-            Debug.LogWarning($"[Cockpit] Data missing for ID: {_elementID} on object {name}. Interaction disabled.");
-        else
-        {
-            _data = _elementRegistry.GetElementData(_elementID);
-        }
+        if(_elementData !=null) _elementRegistry.Register(_elementData.ElementID, this);
     }
     public abstract void OnInteract();
 
-    public string GetHoverText() => _data != null ? _data.ElementName : "Unknow element";
-    public CockpitElementData Data => _data;
+    public string GetHoverText() => _elementData != null ? _elementData.ElementName : "Unknow element";
+    public CockpitElementData Data => _elementData;
 
 }
