@@ -47,6 +47,13 @@ To maintain **144+ FPS** while handling dozens of interactive components, I impl
 * **Dictionary Lookup:** Instead of calling `GetComponent` during every interaction frame, the system caches `IInteractable` references in a `Dictionary<Collider, IInteractable>`.
 * **Zero GC Allocations:** Interaction logic avoids frequent allocations, ensuring smooth camera movement even during complex mechanical operations.
 
+## ✅ Quality Assurance & Testing
+To ensure mathematical precision in cockpit interactions, the framework includes **Unit Tests** (NUnit).
+* **Validation:** Verified calculation of normalized values (0.0 - 1.0) regardless of mechanical rotation clamps.
+* **Regression Testing:** Automated suite to prevent logic breaking during physics or data-structure refactoring.
+
+![TestRunner](https://github.com/xvostik201/TheChecklist/raw/main/Assets/_Projects/Documentation/NormalizedTest.png)
+
 ### 🧠 Implementation Spotlight: Decoupled Camera Feedback
 
 The following logic showcases how the **Interaction System** communicates with the **Camera Controller** without a direct reference. When a "Drag" starts, the camera receives a signal to increase "Resistance," simulating the physical effort and focus required to move a heavy lever.
