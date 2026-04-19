@@ -1,11 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+using System;
 using UnityEngine;
 
-public class Dragging : BaseCockpitElement
+public class Dragging : BaseCockpitElement, INormalizedElement
 {
     private float _currentRotation;
+
+    public float NormalizedValue => GetNormalizedValue();
+    public event Action<float> OnValueChanged;
 
     protected override void Start()
     {
@@ -25,6 +26,9 @@ public class Dragging : BaseCockpitElement
         _currentRotation += deltaY * _data.DragSpeed;
         _currentRotation = Mathf.Clamp(_currentRotation, _data.MinRotation, _data.MaxRotation);
         transform.localRotation = Quaternion.Euler(_currentRotation, 0, 0);
+        
+        OnValueChanged?.Invoke(NormalizedValue);
+        Debug.Log($"{_data.ElementName} is now normalized value {NormalizedValue}");
     }
     
     public float GetNormalizedValue()
