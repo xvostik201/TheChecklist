@@ -1,5 +1,5 @@
 using NUnit.Framework;
-using TheChecklist.Data;
+using TheChecklist.Core.Data;
 using UnityEngine;
 
 public class DraggingTest

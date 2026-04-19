@@ -1,5 +1,5 @@
-using TheChecklist.CockpitElementsType;
-using TheChecklist.Data;
+using TheChecklist.Core.CockpitElements;
+using TheChecklist.Core.Data;
 using UnityEditor;
 
 
