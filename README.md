@@ -14,7 +14,7 @@ A high-fidelity modular framework for complex cockpit interactions in Unity. Des
 
 ### 🎥 Preview
 
-![MainGif](https://github.com/xvostik201/TheChecklist/raw/main/Assets/_Projects/Documentation/MainGif0.gif)
+![MainGif](https://github.com/xvostik201/TheChecklist/raw/main/Assets/_Projects/Documentation/MainGif1.gif)
 
 </div>
 
@@ -30,12 +30,19 @@ This framework demonstrates:
 
 <div align="center">
 
-### 📸 Architecture & Prototyping
+### 🚀 Visual Evolution
 
-| Component Mapping | Checklist Debug Output |
+| Prototype (Whitebox) | Current Build (3D Cockpit) |
 | :---: | :---: |
-| ![MainImage](https://github.com/xvostik201/TheChecklist/raw/main/Assets/_Projects/Documentation/MainImage.png) | ![ChecklistDebugLog](https://github.com/xvostik201/TheChecklist/raw/main/Assets/_Projects/Documentation/ChecklistDebugLog.png) |
-| *Whitebox-prototype of control elements* | *Real-time validation via ChecklistManager* |
+| ![Whitebox](https://github.com/xvostik201/TheChecklist/raw/main/Assets/_Projects/Documentation/MainImage.png) | ![PlaneCockpit](https://github.com/xvostik201/TheChecklist/raw/main/Assets/_Projects/Documentation/PlaneCockpit.png) |
+| *Initial greybox logic testing* | *Integrated 3D models and materials* |
+
+### 📸 Architecture & Configurations
+
+| Checklist Debug Output | Test Runner Validation |
+| :---: | :---: |
+| ![ChecklistDebugLog](https://github.com/xvostik201/TheChecklist/raw/main/Assets/_Projects/Documentation/ChecklistDebugLog.png) | ![TestRunner](https://github.com/xvostik201/TheChecklist/raw/main/Assets/_Projects/Documentation/NormalizedTest.png) |
+| *Real-time validation via ChecklistManager* | *Automated verification of normalized data* |
 
 | Button Configuration | Dragging Configuration | Lever Configuration | Checklist Configuration |
 | :---: | :---: | :---: | :---: |
@@ -63,12 +70,6 @@ The framework includes **Unit Tests** (NUnit) to verify mathematical precision:
 * **Validation:** Verified calculation of normalized values (0.0 - 1.0) regardless of mechanical rotation clamps.
 * **Regression Testing:** Automated suite to prevent logic breaking during physics or data-structure refactoring.
 
-<div align="center">
-  
-![TestRunner](https://github.com/xvostik201/TheChecklist/raw/main/Assets/_Projects/Documentation/NormalizedTest.png)
-
-</div>
-
 ---
 
 ### 🗺️ Roadmap
@@ -76,7 +77,7 @@ The framework includes **Unit Tests** (NUnit) to verify mathematical precision:
 - [x] **Core Interaction Engine** (Buttons, Levers, Dragging).
 - [x] **Dependency Injection** (Zenject integration).
 - [x] **Mission Framework** (Checklist system).
-- [ ] **Visual Fidelity Upgrade:** Replacing whitebox prototypes with high-fidelity PBR-textured 3D models.
+- [x] **Visual Fidelity Upgrade:** Replacing whitebox prototypes with high-fidelity PBR-textured 3D models.
 - [ ] **Full Cockpit Implementation:** Recreating a functional cockpit of a specific aircraft.
 - [ ] **Interactive Tutorial/Credits:** A dedicated scene showcasing the development process and contributors.
 
