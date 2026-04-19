@@ -18,6 +18,6 @@ MonoBehaviour:
   _animationDuration: 0.3
   _targetRotation: {x: 45, y: 0, z: 0}
   _targetPositionZ: 0
-  _minRotation: -35
-  _maxRotation: 65
-  _dragSpeed: 0.45
+  _minRotation: -24
+  _maxRotation: 16
+  _dragSpeed: 0.27

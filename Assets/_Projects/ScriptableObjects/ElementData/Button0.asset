@@ -15,6 +15,9 @@ MonoBehaviour:
   _elementID: Button0
   _elementName: Engine off
   _elementType: 1
-  _animationDuration: 0.3
+  _animationDuration: 0.5
   _targetRotation: {x: 45, y: 0, z: 0}
-  _targetPositionZ: 0.1
+  _targetPosition: {x: -6, y: -0.146, z: 6.242}
+  _minRotation: -10
+  _maxRotation: 45
+  _dragSpeed: 2

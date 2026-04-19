@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 291fdf32ab3808f40941d3264315b5b4, type: 3}
   m_Name: ChecklistStep2
   m_EditorClassIdentifier: 
-  _description: Enable thrust lever to 0.85
-  _targetElementID: Dragging0
+  _description: Enable red lever 1
+  _targetElementID: Lever1
   _requiredState: 1
-  _requiredValue: 0.85
+  _requiredValue: 0

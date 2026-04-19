@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95eb2ea980ca4a943827f06a45511a6f, type: 3}
-  m_Name: Dragging1
+  m_Name: Lever1
   m_EditorClassIdentifier: 
-  _elementID: Dragging1
-  _elementName: EngineDragLever
-  _elementType: 2
-  _animationDuration: 0.3
-  _targetRotation: {x: 45, y: 0, z: 0}
+  _elementID: Lever1
+  _elementName: Engine 1 ON
+  _elementType: 0
+  _animationDuration: 0.5
+  _targetRotation: {x: 110, y: 0, z: 0}
   _targetPositionZ: 0
-  _minRotation: 20
-  _maxRotation: 160
-  _dragSpeed: 0.45
+  _minRotation: -10
+  _maxRotation: 45
+  _dragSpeed: 2

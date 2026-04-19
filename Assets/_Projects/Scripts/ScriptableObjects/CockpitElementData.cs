@@ -28,9 +28,9 @@ public class CockpitElementData : ScriptableObject
     [SerializeField] private Vector3 _targetRotation;
     public Vector3 TargetRotation => _targetRotation;
 
-    [Tooltip("Relative offset along the Z-axis (Used for Buttons).")]
-    [SerializeField] private float _targetPositionZ;
-    public float TargetPositionZ => _targetPositionZ;
+    [Tooltip("Relative offset (Used for Buttons).")]
+    [SerializeField] private Vector3 _targetPosition;
+    public Vector3 TargetPosition => _targetPosition;
     
     [Tooltip("The minimum allowed rotation angle (Used for Dragging/Thrust).")]
     [SerializeField] private float _minRotation = -10f;

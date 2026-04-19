@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: Lever0
   m_EditorClassIdentifier: 
   _elementID: Lever0
-  _elementName: Engine on
-  _animationDuration: 0.3
-  _targetRotation: {x: 45, y: 0, z: 0}
-  _targetPositonZ: 0
-  _element: 1
+  _elementName: Engine 0 ON
+  _elementType: 0
+  _animationDuration: 0.5
+  _targetRotation: {x: 110, y: 0, z: 0}
+  _targetPositionZ: 0
+  _minRotation: -10
+  _maxRotation: 45
+  _dragSpeed: 2

@@ -13,7 +13,7 @@ public class CockpitElementEditor : Editor
         serializedObject.Update();
         
         DrawPropertiesExcluding(serializedObject,
-            "_targetRotation", "_targetPositionZ", 
+            "_targetRotation", "_targetPosition", 
             "_minRotation", "_maxRotation", "_dragSpeed", "_animationDuration");
         
 
@@ -26,7 +26,7 @@ public class CockpitElementEditor : Editor
         switch (data.ElementType)
         {
             case CockpitElementType.Button:
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("_targetPositionZ"),
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("_targetPosition"),
                     true);
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("_animationDuration"), 
                     true);

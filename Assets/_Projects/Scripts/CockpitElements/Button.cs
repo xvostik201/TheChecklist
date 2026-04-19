@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class Button : BaseCockpitElement, IToggleable
 {
-    private float _startLocalPositonZ;
-    private float _targetLocalPositonZ;
+    private Vector3 _startLocalPositon;
+    private Vector3 _targetLocalPositon;
     
     public bool IsActive => _isActive;
     public event Action<bool> OnStateChanged;
@@ -15,8 +15,8 @@ public class Button : BaseCockpitElement, IToggleable
     protected override void Awake()
     {
         base.Awake();
-        _startLocalPositonZ = transform.localPosition.z;
-        if(_elementData != null)  _targetLocalPositonZ = _startLocalPositonZ + _elementData.TargetPositionZ;
+        _startLocalPositon = transform.localPosition;
+        if(_elementData != null)  _targetLocalPositon = _elementData.TargetPosition;
     }
     public override void OnInteract()
     {
@@ -30,8 +30,8 @@ public class Button : BaseCockpitElement, IToggleable
 
     private void AnimateButton()
     {
-        float finalRotation = _isActive ? _targetLocalPositonZ : _startLocalPositonZ;
+        Vector3 finalPositionZ = _isActive ? _targetLocalPositon : _startLocalPositon;
 
-        transform.DOLocalMoveZ(finalRotation,  _elementData.AnimationDuration).SetEase(Ease.Linear);
+        transform.DOLocalMove(finalPositionZ,  _elementData.AnimationDuration).SetEase(Ease.Linear);
     }
 }
