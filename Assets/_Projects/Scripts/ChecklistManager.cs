@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TheChecklist.Data;
+using TheChecklist.Installers;
 using UnityEngine;
 using Zenject;
 

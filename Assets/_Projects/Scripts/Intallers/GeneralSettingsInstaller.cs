@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using TheChecklist.Data;
 using UnityEngine;
 using Zenject;
 
-public class GeneralSettingsInstaller : MonoInstaller
+namespace TheChecklist.Installers
 {
-   [SerializeField] private GeneralSettingsData _generalSettingsData;
+    public class GeneralSettingsInstaller : MonoInstaller
+    {
+        [SerializeField] private GeneralSettingsData _generalSettingsData;
 
-   public override void InstallBindings()
-   {
-      Container.BindInstance(_generalSettingsData);
-   }
+        public override void InstallBindings()
+        {
+            Container.BindInstance(_generalSettingsData);
+        }
+    }
 }
+

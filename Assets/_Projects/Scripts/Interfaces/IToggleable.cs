@@ -3,9 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IToggleable
+namespace TheChecklist.Installers
 {
-    bool IsActive { get; }
+    public interface IToggleable
+    {
+        bool IsActive { get; }
     
-    event Action<bool> OnStateChanged;
+        event Action<bool> OnStateChanged;
+    }
 }
+

@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using TheChecklist.CockpitElements;
+using TheChecklist.Installers;
 
 public class Lever : BaseCockpitElement, IToggleable
 {

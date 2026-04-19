@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using TheChecklist.Data;
 using UnityEngine;
 
-public interface IInteractable
+namespace TheChecklist.Interfaces
 {
-    public void OnInteract();
+    public interface IInteractable
+    {
+        public void OnInteract();
 
-    public string GetHoverText();
-    public CockpitElementData Data { get; }
+        public string GetHoverText();
+        public CockpitElementData Data { get; }
+    }
 }
+

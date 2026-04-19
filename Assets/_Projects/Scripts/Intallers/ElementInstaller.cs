@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class ElementInstaller : MonoInstaller
+namespace TheChecklist.Installers
 {
-    public override void InstallBindings()
+    public class ElementInstaller : MonoInstaller
     {
-        Container.Bind<ElementRegistry>().AsSingle();
+        public override void InstallBindings()
+        {
+            Container.Bind<ElementRegistry>().AsSingle();
+        }
     }
 }
+

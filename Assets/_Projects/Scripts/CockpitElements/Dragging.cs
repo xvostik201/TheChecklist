@@ -1,5 +1,7 @@
 using System;
 using UnityEngine;
+using TheChecklist.CockpitElements;
+using TheChecklist.Installers;
 
 public class Dragging : BaseCockpitElement, INormalizedElement
 {

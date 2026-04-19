@@ -1,8 +1,11 @@
 using System;
 
-
-public interface INormalizedElement
+namespace TheChecklist.Installers
 {
-    float NormalizedValue { get; }
-    event Action<float> OnValueChanged;
+    public interface INormalizedElement
+    {
+        float NormalizedValue { get; }
+        event Action<float> OnValueChanged;
+    }
 }
+

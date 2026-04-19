@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class CameraInstaller : MonoInstaller
+namespace TheChecklist.Installers
 {
-    public override void InstallBindings()
+    public class CameraInstaller : MonoInstaller
     {
-        Container.Bind<Camera>().FromComponentInHierarchy().AsSingle();
+        public override void InstallBindings()
+        {
+            Container.Bind<Camera>().FromComponentInHierarchy().AsSingle();
+        }
     }
 }
+

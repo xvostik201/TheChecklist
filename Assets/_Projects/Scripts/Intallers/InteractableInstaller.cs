@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using TheChecklist.Player;
 using UnityEngine;
 using Zenject;
 
-public class InteractableInstaller : MonoInstaller
+namespace TheChecklist.Installers
 {
-    public override void InstallBindings()
+    public class InteractableInstaller : MonoInstaller
     {
-        Container.Bind<PlayerInteractable>().FromComponentInHierarchy().AsSingle();
+        public override void InstallBindings()
+        {
+            Container.Bind<PlayerInteractable>().FromComponentInHierarchy().AsSingle();
+        }
     }
 }
+

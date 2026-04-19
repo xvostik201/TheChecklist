@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum CockpitElementType
+namespace TheChecklist.CockpitElementsType
 {
-    Lever,
-    Button,
-    Dragging
+    public enum CockpitElementType
+    {
+        Lever,
+        Button,
+        Dragging
+    }
 }
+
