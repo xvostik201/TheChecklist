@@ -37,7 +37,11 @@ namespace TheChecklist.Core
             if (!_isInitialized)
             {
                 _isInitialized = true;
-                if(_checklistSteps.Count > 0) SubscribeToCurrentStep();
+                if (_checklistSteps.Count > 0)
+                {
+                    SubscribeToAllStepElementsForRollback();
+                    SubscribeToCurrentStep();
+                }
     
                 DebugAllSteps();
             }
@@ -51,7 +55,7 @@ namespace TheChecklist.Core
             var element = _elementRegistry.GetElement(step.TargetElementID);
             if (element == null) 
             {
-                Debug.LogError($"[Checklist] Элемент {step.TargetElementID} не найден в реестре в момент подписки!");
+                Debug.LogError($"[Checklist] Element {step.TargetElementID} don't exists on subscribe.");
                 return;
             }
     
@@ -66,13 +70,13 @@ namespace TheChecklist.Core
                 normalizedElement.OnValueChanged += OnElementValueChanged;
             }
             
-            // Debug.Log($"Subscribed to checklist step {_checklistSteps[_currentStepIndex].Description}");
+            Debug.Log($"<color=cyan><b>Subscribed to checklist step {_checklistSteps[_currentStepIndex].Description}</b></color>");
         }
     
         private void OnElementChanged(bool newState)
         {
             var currentStep = CurrentStep;
-                if (newState == currentStep.RequiredState && CurrentStep != null)
+                if (CurrentStep != null && newState == currentStep.RequiredState)
                     CompleteStep(); 
         }
     
@@ -111,6 +115,61 @@ namespace TheChecklist.Core
             for(int i = 0; i < _checklistSteps.Count; i++)
             {
                 Debug.Log($"<color=red> step {i}: {_checklistSteps[i].Description} (Target: {_checklistSteps[i].TargetElementID})</color>");
+            }
+        }
+
+        private void ResetToStep(int index)
+        {
+            Debug.Log($"Current step index {_currentStepIndex}. RESET TO {index}: ");
+            Debug.Log($"<color=red>Step reset to :</color> {_checklistSteps[index].Description}");
+            _currentStepIndex = index;
+            SubscribeToCurrentStep();
+        }
+
+        private void OnStateChange(string elementID, bool newState)
+        {
+            int stepIndex = _checklistSteps.FindIndex(s => s.TargetElementID == elementID);
+            if (stepIndex == -1) return;
+
+            Debug.Log($"Step {_checklistSteps[stepIndex].Description}! State changed to {newState}");
+            
+            if (stepIndex < _currentStepIndex && newState != _checklistSteps[stepIndex].RequiredState)
+            {
+                ResetToStep(stepIndex);
+            }
+        }
+
+        private void OnStateChange(string elementID, float newStateValue)
+        {
+            int stepIndex = _checklistSteps.FindIndex(s => s.TargetElementID == elementID);
+            if (stepIndex == -1) return;
+            
+            Debug.Log($"Step {_checklistSteps[stepIndex].Description}! State changed to {newStateValue}");
+
+            if (stepIndex < _currentStepIndex &&
+                Mathf.Abs(_checklistSteps[stepIndex].RequiredValue - newStateValue) > 0.05f)
+            {
+                ResetToStep(stepIndex);
+            }
+        }
+
+        private void SubscribeToAllStepElementsForRollback()
+        {
+            foreach (var step in _checklistSteps)
+            {
+                var  element = _elementRegistry.GetElement(step.TargetElementID);
+                if(element == null) continue;
+
+                string targetID = step.TargetElementID;
+
+                if (element is IToggleable toggleable)
+                {
+                    toggleable.OnStateChanged += (newState) => OnStateChange(targetID, newState);
+                }
+                else if (element is INormalizedElement normalizedElement)
+                {
+                    normalizedElement.OnValueChanged += (newValue) => OnStateChange(targetID,  newValue);
+                }
             }
         }
         
