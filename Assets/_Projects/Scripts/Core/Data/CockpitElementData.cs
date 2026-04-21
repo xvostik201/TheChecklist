@@ -46,5 +46,9 @@ namespace TheChecklist.Core.Data
         [Tooltip("Multiplier for drag sensitivity. Higher values mean faster movement (Used for Dragging).")]
         [SerializeField, Range(0.1f, 2f)] private float _dragSpeed = 2f;
         public float DragSpeed => _dragSpeed;
+        
+        [Header("Audio settings")]
+        [SerializeField] private string _audioClipID = "Toggle";
+        public string AudioClipID => _audioClipID;
     }
 }

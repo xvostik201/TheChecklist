@@ -28,6 +28,8 @@ namespace TheChecklist.Core.CockpitElements
             AnimateButton();
         
             OnStateChanged?.Invoke(_isActive);
+            
+            _audioProvider.PlaySound3D(transform.position, _elementData.AudioClipID);
             // Debug.Log($"{_elementData.ElementName} is now {(_isActive ? "ON" : "OFF")}");
         }
 

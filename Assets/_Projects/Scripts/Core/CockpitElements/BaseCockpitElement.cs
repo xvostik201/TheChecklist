@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TheChecklist.Core.Data;
+using TheChecklist.Interface;
 using TheChecklist.Interfaces;
 using UnityEngine;
 using Zenject;
@@ -15,6 +16,7 @@ namespace TheChecklist.Core.CockpitElements
         protected bool _isActive = false;
 
         [Inject] protected ElementRegistry _elementRegistry;
+        [Inject] protected IAudioProvider _audioProvider;
 
         protected virtual void Awake()
         {

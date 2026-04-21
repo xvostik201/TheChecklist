@@ -205,6 +205,7 @@ MonoBehaviour:
   - {fileID: 455981868}
   - {fileID: 1360485773}
   - {fileID: 1038884823}
+  - {fileID: 1882520585}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -241,6 +242,7 @@ Transform:
   - {fileID: 455981867}
   - {fileID: 1360485772}
   - {fileID: 1038884822}
+  - {fileID: 1882520584}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &30617620
@@ -1306,6 +1308,53 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 13c7adf302ee04f4cbdc46f9037e3d4c, type: 2}
   - {fileID: 11400000, guid: 0a6ac75ad09a3d542868412ac0e5b5a8, type: 2}
   - {fileID: 11400000, guid: 8493724e8116f2a43bf5a2e9cbe5a003, type: 2}
+--- !u!1 &1099836290
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1099836292}
+  - component: {fileID: 1099836291}
+  m_Layer: 0
+  m_Name: UnityAudioService
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1099836291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099836290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75e0e03aacc32ef4ab515fac4df1d55d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSourcePrefab: {fileID: 1747170057909402333, guid: 86708bb73a89ddd47a8c39f8d42eedcd,
+    type: 3}
+  _poolSize: 10
+--- !u!4 &1099836292
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099836290}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.5627112, y: 40.57938, z: -6.1446137}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1297628699
 GameObject:
   m_ObjectHideFlags: 0
@@ -2568,6 +2617,51 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1797465572}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1882520583
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1882520584}
+  - component: {fileID: 1882520585}
+  m_Layer: 0
+  m_Name: AudioInstaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1882520584
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882520583}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 19955451}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1882520585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882520583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bf6cfe8716226e429bf80e1554baf24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioRegistry: {fileID: 11400000, guid: 58b7bd8f732865d44ab49030aba33997, type: 2}
 --- !u!1 &1984520268
 GameObject:
   m_ObjectHideFlags: 0
@@ -2895,6 +2989,7 @@ SceneRoots:
   - {fileID: 256337449}
   - {fileID: 19955451}
   - {fileID: 762266377}
-  - {fileID: 168776027}
   - {fileID: 1790700192}
   - {fileID: 348070286}
+  - {fileID: 168776027}
+  - {fileID: 1099836292}
