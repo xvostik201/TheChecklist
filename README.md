@@ -39,15 +39,25 @@ This framework demonstrates:
 
 ### 📸 Architecture & Configurations
 
-| Checklist Debug Output | Test Runner Validation |
-| :---: | :---: |
-| ![ChecklistDebugLog](https://github.com/xvostik201/TheChecklist/raw/main/Assets/_Projects/Documentation/ChecklistDebugLog.png) | ![TestRunner](https://github.com/xvostik201/TheChecklist/raw/main/Assets/_Projects/Documentation/NormalizedTest.png) |
-| *Real-time validation via ChecklistManager* | *Automated verification of normalized data* |
+| Test Runner Validation |
+| :---: |
+| ![TestRunner](https://github.com/xvostik201/TheChecklist/raw/main/Assets/_Projects/Documentation/NormalizedTest.png) |
+| *Automated verification of normalized data* |
 
 | Button Configuration | Dragging Configuration | Lever Configuration | Checklist Configuration |
 | :---: | :---: | :---: | :---: |
 | ![ButtonData](https://github.com/xvostik201/TheChecklist/raw/main/Assets/_Projects/Documentation/Button.png) | ![DragData](https://github.com/xvostik201/TheChecklist/raw/main/Assets/_Projects/Documentation/Drag.png) | ![LeverData](https://github.com/xvostik201/TheChecklist/raw/main/Assets/_Projects/Documentation/Lever.png) | ![ChecklistData](https://github.com/xvostik201/TheChecklist/raw/main/Assets/_Projects/Documentation/ChecklistStepSO.png) |
 | *Click-based interaction* | *Precision physical dragging* | *Binary state toggling* | *SO-driven sequences* |
+#### 🔍 Integrity Monitoring & Debugging
+| Checklist Progress & Rollback Log |
+| :---: |
+| ![DebugRollbackLog](https://github.com/xvostik201/TheChecklist/raw/main/Assets/_Projects/Documentation/DebugRollbackLog.png) |
+| *Real-time console output showing step completion and automatic state-violation rollback* |
+
+| Checklist Debug Output |
+| :---: |
+| ![ChecklistDebugLog](https://github.com/xvostik201/TheChecklist/raw/main/Assets/_Projects/Documentation/ChecklistDebugLog.png) |
+| *Real-time validation via ChecklistManager* |
 
 </div>
 
@@ -59,6 +69,7 @@ This framework demonstrates:
 * **State-Driven Progression:** Automatically monitors cockpit element states and triggers the next objective only when requirements are met.
 * **Interface-Agnostic Validation:** Uses `IToggleable` and `INormalizedElement` to validate both binary (On/Off) and continuous (0.0-1.0) control values.
 * **Safe Initialization:** Implements a deferred initialization pattern to ensure all scene elements are registered in the global registry before the mission starts.
+* **Non-linear State Monitoring (Rollback System):** Constantly monitors the state of previously completed steps. If a user accidentally toggles a switch from an earlier stage, the system detects the violation and resets the progress to that step.
 
 **🎯 Interaction Engine**
 * **Normalized Data Output:** Translates physical rotation into a standardized `0.0f - 1.0f` range.
