@@ -13,12 +13,15 @@ namespace TheChecklist.Core
         [Inject] readonly List<ChecklistStep> _checklistSteps;
         [Inject] readonly ElementRegistry _elementRegistry;
     
+        private readonly Dictionary<IToggleableElement, Action<bool>> _toggleableDictionary = new();
+        private readonly Dictionary<INormalizedElement, Action<float>> _normalizedDictionary = new ();
+        
         private int _currentStepIndex = 0;
         private bool _isInitialized = false;
         
         private ChecklistStep CurrentStep => (_currentStepIndex < _checklistSteps.Count) ? _checklistSteps[_currentStepIndex] : null;
         
-        private IToggleable _currentToggleable;
+        private IToggleableElement _currentToggleableElement;
         private INormalizedElement _currentNormalizedElement;
     
         public ChecklistManager(List<ChecklistStep> checklistSteps, ElementRegistry elementRegistry)
@@ -59,9 +62,9 @@ namespace TheChecklist.Core
                 return;
             }
     
-            if (element is IToggleable toggleable)
+            if (element is IToggleableElement toggleable)
             {
-                _currentToggleable = toggleable;
+                _currentToggleableElement = toggleable;
                 toggleable.OnStateChanged += OnElementChanged;
             }
             else if (element is INormalizedElement normalizedElement)
@@ -103,10 +106,10 @@ namespace TheChecklist.Core
     
         private void Unsubscribe()
         {
-            if(_currentToggleable != null) _currentToggleable.OnStateChanged -= OnElementChanged;
+            if(_currentToggleableElement != null) _currentToggleableElement.OnStateChanged -= OnElementChanged;
             if(_currentNormalizedElement != null) _currentNormalizedElement.OnValueChanged -= OnElementValueChanged;
     
-            _currentToggleable = null;
+            _currentToggleableElement = null;
             _currentNormalizedElement = null;
         }
     
@@ -162,18 +165,37 @@ namespace TheChecklist.Core
 
                 string targetID = step.TargetElementID;
 
-                if (element is IToggleable toggleable)
+                if (element is IToggleableElement toggleable)
                 {
-                    toggleable.OnStateChanged += (newState) => OnStateChange(targetID, newState);
+                    Action<bool> handler = (newState) => OnStateChange(targetID, newState);
+                    toggleable.OnStateChanged += handler;
+                    _toggleableDictionary[toggleable] = handler;
                 }
                 else if (element is INormalizedElement normalizedElement)
                 {
-                    normalizedElement.OnValueChanged += (newValue) => OnStateChange(targetID,  newValue);
+                    Action<float> handler = (newValue) => OnStateChange(targetID, newValue);
+                    normalizedElement.OnValueChanged += handler;
+                    _normalizedDictionary[normalizedElement] = handler;
                 }
             }
         }
         
-        public void Dispose() => Unsubscribe();
+        public void Dispose()
+        { 
+            Unsubscribe();
+            foreach (var kvp in _toggleableDictionary)
+            {
+                kvp.Key.OnStateChanged -= kvp.Value;
+            }
+
+            foreach (var kvp in _normalizedDictionary)
+            {
+                kvp.Key.OnValueChanged -= kvp.Value;
+            }
+            
+            _toggleableDictionary.Clear();
+            _normalizedDictionary.Clear();
+        }
     }
 }
 
