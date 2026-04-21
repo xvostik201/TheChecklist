@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace TheChecklist.Installers
 {
-    public interface IToggleable
+    public interface IToggleableElement
     {
         bool IsActive { get; }
     

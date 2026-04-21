@@ -7,7 +7,7 @@ using TheChecklist.Installers;
 
 namespace TheChecklist.Core.CockpitElements
 {
-    public class Lever : BaseCockpitElement, IToggleable
+    public class Lever : BaseCockpitElement, IToggleableElement
     {
         private Vector3 _startRotation;
 

@@ -7,7 +7,7 @@ using TheChecklist.Installers;
 
 namespace TheChecklist.Core.CockpitElements
 {
-    public class Button : BaseCockpitElement, IToggleable
+    public class Button : BaseCockpitElement, IToggleableElement
     {
         private Vector3 _startLocalPositon;
         private Vector3 _targetLocalPositon;
