@@ -22,6 +22,19 @@ namespace TheChecklist.Data
         
             return data.AudioClip;
         }
+        
+        public float GetAudioClipVolume(string id)
+        {
+            var data = audioClips.Find(x => x.AudioSourceID == id);
+
+            if (data == null)
+            {
+                Debug.LogWarning($"[AudioRegistry] Volume with ID: '{id}' dont exist!");
+                return 0.5f;
+            }
+        
+            return data.Volume;
+        }
     }
 }
 

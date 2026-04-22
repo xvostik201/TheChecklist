@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using TheChecklist.Data;
 using TheChecklist.Interface;
@@ -13,6 +12,7 @@ namespace TheChecklist.Core.Services
         [SerializeField] private int _poolSize = 10;
 
         readonly List<AudioSource> _audioSourcePool = new List<AudioSource>();
+        private readonly float _baseAudioSourcePitch = 1f;
 
         [Inject] private AudioRegistry _audioRegistry;
 
@@ -44,23 +44,33 @@ namespace TheChecklist.Core.Services
 
         public void PlaySound3D(Vector3 soundPosition, string audioID)
         {
-            var clip = _audioRegistry.GetAudioClip(audioID);
-            var pos = soundPosition;
-            
-            AudioSource currentSource = GetAudioSource();
-            
-            currentSource.gameObject.SetActive(true);
-            
-            currentSource.clip = clip;
-            currentSource.transform.position = pos;
-            currentSource.spatialBlend = 1f;
+            var currentSource = SetupCurrentAudioSource(audioID, true);
             
             currentSource.Play();
         }
 
         public void PlaySound2D(string audioID)
         {
+            var currentSource = SetupCurrentAudioSource(audioID);
+
+            currentSource.Play();
+        }
+
+        private AudioSource SetupCurrentAudioSource(string audioID, bool is3DSound = false)
+        {
+            var clip = _audioRegistry.GetAudioClip(audioID);
+            var volume = _audioRegistry.GetAudioClipVolume(audioID);
             
+            AudioSource currentSource = GetAudioSource();
+            
+            currentSource.gameObject.SetActive(true);
+            
+            currentSource.clip = clip;
+            currentSource.spatialBlend = is3DSound ? 1f : 0f;
+            currentSource.volume = volume * Random.Range(0.9f, 1.1f);
+            currentSource.pitch = _baseAudioSourcePitch * Random.Range(0.8f, 1.2f);
+            
+            return currentSource;
         }
     }
 }
