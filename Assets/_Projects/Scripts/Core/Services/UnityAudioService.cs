@@ -12,7 +12,7 @@ namespace TheChecklist.Core.Services
         [SerializeField] private int _poolSize = 10;
 
         readonly List<AudioSource> _audioSourcePool = new List<AudioSource>();
-        private readonly float _baseAudioSourcePitch = 1f;
+        readonly float _baseAudioSourcePitch = 1f;
 
         [Inject] private AudioRegistry _audioRegistry;
 
