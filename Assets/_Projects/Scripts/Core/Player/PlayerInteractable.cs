@@ -5,6 +5,7 @@ using TheChecklist.Core.CockpitElements;
 using TheChecklist.Core.Input;
 using TheChecklist.Interfaces;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using Zenject;
 
 namespace TheChecklist.Core.Player
@@ -24,7 +25,9 @@ namespace TheChecklist.Core.Player
         
         [Inject] private InputManager _inputManager;
         [Inject] private Camera _camera;
-    
+        [Inject] private CameraShaking _cameraShaking;
+        [Inject] private ChecklistManager _checklistManager;
+        
         private void Awake()
         {
             _interactablesCache = new Dictionary<Collider, IInteractable>();
@@ -69,8 +72,11 @@ namespace TheChecklist.Core.Player
                     
                     _interactablesCache[hit.collider] = interactable;
                 }
-    
-                if (interactable.Data.ElementType == CockpitElementType.Dragging)
+                if (!_checklistManager.IsActionAllowed(interactable.Data.ElementID))
+                {
+                    _cameraShaking.CameraShake();
+                }
+                else if (interactable.Data.ElementType == CockpitElementType.Dragging)
                 {
                     StartDragging(interactable);
                 }

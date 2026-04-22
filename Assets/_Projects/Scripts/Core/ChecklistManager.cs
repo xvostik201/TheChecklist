@@ -101,7 +101,7 @@ namespace TheChecklist.Core
             if (_currentStepIndex < _checklistSteps.Count)
                 SubscribeToCurrentStep();
             else
-                Debug.Log("<color=cyan><b>All Checklist completed!</b></color>");
+                Debug.Log("<color=cyan><b> All Checklist completed! </b></color>");
         }
     
         private void Unsubscribe()
@@ -124,7 +124,7 @@ namespace TheChecklist.Core
         private void ResetToStep(int index)
         {
             Debug.Log($"Current step index {_currentStepIndex}. RESET TO {index}: ");
-            Debug.Log($"<color=red>Step reset to :</color> {_checklistSteps[index].Description}");
+            Debug.Log($"<color=red> Step reset to :</color> {_checklistSteps[index].Description}");
             _currentStepIndex = index;
             SubscribeToCurrentStep();
         }
@@ -195,6 +195,15 @@ namespace TheChecklist.Core
             
             _toggleableDictionary.Clear();
             _normalizedDictionary.Clear();
+        }
+        
+        public bool IsActionAllowed(string targetElementID)
+        {
+            int stepIndex = _checklistSteps.FindIndex(s => s.TargetElementID == targetElementID);
+            Debug.Log($"<color=red> IsActionAllowed </color>: step {stepIndex}:" +
+                      $" allowed?: {stepIndex < _currentStepIndex}");
+            if(stepIndex == -1) return true;
+            return stepIndex <= _currentStepIndex;
         }
     }
 }
