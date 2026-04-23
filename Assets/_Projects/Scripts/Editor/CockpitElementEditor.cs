@@ -50,6 +50,14 @@ namespace TheChecklist.Editor
                         
                     EditorGUILayout.HelpBox($"Current element type: DRAGGING", MessageType.Info);
                     break;
+                case CockpitElementType.Clipboard:
+                    EditorGUILayout.PropertyField(serializedObject.FindProperty("_animationDuration"),
+                        true);
+                    EditorGUILayout.PropertyField(serializedObject.FindProperty("_targetRotation"),
+                        true);
+                    EditorGUILayout.PropertyField(serializedObject.FindProperty("_targetPosition"),
+                        true);
+                    break;
             }
             
             

@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using TheChecklist.Core.Data;
 using TheChecklist.Installers;
@@ -19,10 +18,13 @@ namespace TheChecklist.Core
         private int _currentStepIndex = 0;
         private bool _isInitialized = false;
         
-        private ChecklistStep CurrentStep => (_currentStepIndex < _checklistSteps.Count) ? _checklistSteps[_currentStepIndex] : null;
+        private ChecklistStep CurrentStep => (_currentStepIndex < _checklistSteps.Count)
+            ? _checklistSteps[_currentStepIndex] : null;
         
         private IToggleableElement _currentToggleableElement;
         private INormalizedElement _currentNormalizedElement;
+        
+        public event Action OnStateChanged;
     
         public ChecklistManager(List<ChecklistStep> checklistSteps, ElementRegistry elementRegistry)
         {
@@ -73,6 +75,8 @@ namespace TheChecklist.Core
                 normalizedElement.OnValueChanged += OnElementValueChanged;
             }
             
+            OnStateChanged?.Invoke();
+            
             Debug.Log($"<color=cyan><b>Subscribed to checklist step {_checklistSteps[_currentStepIndex].Description}</b></color>");
         }
     
@@ -101,7 +105,11 @@ namespace TheChecklist.Core
             if (_currentStepIndex < _checklistSteps.Count)
                 SubscribeToCurrentStep();
             else
+            {
                 Debug.Log("<color=cyan><b> All Checklist completed! </b></color>");
+                OnStateChanged?.Invoke();
+            }
+            
         }
     
         private void Unsubscribe()
@@ -205,6 +213,10 @@ namespace TheChecklist.Core
             if(stepIndex == -1) return true;
             return stepIndex <= _currentStepIndex;
         }
+
+        public int GetCurrentStep() => _currentStepIndex;
+        
+        public List<ChecklistStep> GetSteps() => _checklistSteps;
     }
 }
 

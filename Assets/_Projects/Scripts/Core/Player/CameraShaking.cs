@@ -25,8 +25,8 @@ namespace TheChecklist.Core.Player
     
             transform.DOComplete(); 
     
-            transform.DOShakeRotation(_shakingDuration, new Vector3(0, _angle, 0), _vibrationDuration,
-                    90, fadeOut: false)
+            transform.DOShakeRotation(_shakingDuration, new Vector3(0, _angle, 0), _vibrationDuration
+                    , 0, fadeOut: false)
                 .OnComplete(() =>
                 {
                     OnEndShaking?.Invoke(); 

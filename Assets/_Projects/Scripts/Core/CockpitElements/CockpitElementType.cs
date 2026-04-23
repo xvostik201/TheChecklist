@@ -8,7 +8,8 @@ namespace TheChecklist.Core.CockpitElements
     {
         Lever,
         Button,
-        Dragging
+        Dragging,
+        Clipboard
     }
 }
 

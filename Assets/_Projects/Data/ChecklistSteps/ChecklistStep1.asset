@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 291fdf32ab3808f40941d3264315b5b4, type: 3}
   m_Name: ChecklistStep1
   m_EditorClassIdentifier: 
-  _description: 'Enable red lever 0
-
-'
+  _description: 'Enable engine 0: left lever'
   _targetElementID: Lever0
   _requiredState: 1
   _requiredValue: 0
