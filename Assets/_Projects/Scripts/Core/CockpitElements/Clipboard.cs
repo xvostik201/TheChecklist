@@ -22,8 +22,9 @@ namespace TheChecklist.Core.CockpitElements
         [Inject] private ChecklistManager _checklistManager;
         
         private List<TextMeshPro> _stepTMPs = new List<TextMeshPro>();
+        private Sequence _animationSequence;
     
-        private void Awake()
+        protected override void Awake()
         {
             _startLocalPosition = transform.localPosition;
             _startLocalRotation = transform.localEulerAngles;
@@ -89,15 +90,15 @@ namespace TheChecklist.Core.CockpitElements
             Vector3 targetPos = _isActive ? _elementData.TargetPosition : _startLocalPosition;
             Vector3 targetRot = _isActive ? _elementData.TargetRotation : _startLocalRotation;
     
-            Sequence sequence = DOTween.Sequence();
+            _animationSequence?.Kill(true);
             
-            sequence?.Kill(true);
+            _animationSequence = DOTween.Sequence();
             
-            sequence.Append(transform.DOLocalMove(targetPos, _elementData.AnimationDuration));
-            sequence.Join(transform.DOLocalRotate(targetRot, _elementData.AnimationDuration));
-            sequence.SetEase(Ease.OutBack);
+            _animationSequence.Append(transform.DOLocalMove(targetPos, _elementData.AnimationDuration));
+            _animationSequence.Join(transform.DOLocalRotate(targetRot, _elementData.AnimationDuration));
+            _animationSequence.SetEase(Ease.OutBack);
             
-            sequence.OnComplete(() => Debug.Log($"Clipboard animation finished!"));
+            _animationSequence.OnComplete(() => Debug.Log($"Clipboard animation finished!"));
         }
     }
 }
