@@ -47,6 +47,7 @@ namespace TheChecklist.Core.Services
             var currentSource = SetupCurrentAudioSource(audioID, true);
             
             currentSource.Play();
+            currentSource.transform.position = soundPosition;
         }
 
         public void PlaySound2D(string audioID)

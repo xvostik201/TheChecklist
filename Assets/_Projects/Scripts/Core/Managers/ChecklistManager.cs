@@ -5,7 +5,7 @@ using TheChecklist.Installers;
 using UnityEngine;
 using Zenject;
 
-namespace TheChecklist.Core
+namespace TheChecklist.Core.Managers
 {
     public class ChecklistManager : IInitializable, IDisposable, ITickable
     {
@@ -25,6 +25,7 @@ namespace TheChecklist.Core
         private INormalizedElement _currentNormalizedElement;
         
         public event Action OnStateChanged;
+        public event Action OnChecklistComplete;
     
         public ChecklistManager(List<ChecklistStep> checklistSteps, ElementRegistry elementRegistry)
         {
@@ -107,6 +108,7 @@ namespace TheChecklist.Core
             else
             {
                 Debug.Log("<color=cyan><b> All Checklist completed! </b></color>");
+                OnChecklistComplete?.Invoke();
                 OnStateChanged?.Invoke();
             }
             
