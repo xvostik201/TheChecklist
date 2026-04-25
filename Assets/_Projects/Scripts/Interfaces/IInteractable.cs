@@ -11,6 +11,7 @@ namespace TheChecklist.Interfaces
 
         public string GetHoverText();
         public CockpitElementData Data { get; }
+        bool RequiresCheckList => Data != null;
     }
 }
 

@@ -72,11 +72,11 @@ namespace TheChecklist.Core.Player
                     
                     _interactablesCache[hit.collider] = interactable;
                 }
-                if (!_checklistManager.IsActionAllowed(interactable.Data.ElementID))
+                if(interactable.RequiresCheckList && (!_checklistManager.IsActionAllowed(interactable.Data.ElementID)))
                 {
                     _cameraShaking.CameraShake();
                 }
-                else if (interactable.Data.ElementType == CockpitElementType.Dragging)
+                else if (interactable.RequiresCheckList && interactable.Data.ElementType == CockpitElementType.Dragging)
                 {
                     StartDragging(interactable);
                 }

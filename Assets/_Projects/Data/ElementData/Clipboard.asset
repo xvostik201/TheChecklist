@@ -15,9 +15,9 @@ MonoBehaviour:
   _elementID: Clipboard
   _elementName: Clipboard
   _elementType: 3
-  _animationDuration: 0.65
+  _animationDuration: 0.75
   _targetRotation: {x: 0, y: 0, z: 0}
-  _targetPosition: {x: -9.32, y: 44.72, z: -5.52}
+  _targetPosition: {x: -15.06, y: 31.55, z: 488.96}
   _minRotation: -10
   _maxRotation: 45
   _dragSpeed: 2
