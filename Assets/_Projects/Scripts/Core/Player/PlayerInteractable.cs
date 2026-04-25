@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TheChecklist.Core.CockpitElements;
 using TheChecklist.Core.Input;
+using TheChecklist.Core.Managers;
 using TheChecklist.Interfaces;
 using UnityEngine;
 using UnityEngine.InputSystem;

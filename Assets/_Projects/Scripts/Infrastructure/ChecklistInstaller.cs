@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TheChecklist.Core;
 using TheChecklist.Core.Data;
+using TheChecklist.Core.Managers;
 using UnityEngine;
 using Zenject;
 
