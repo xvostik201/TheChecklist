@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using TheChecklist.Data;
-using TheChecklist.Interface;
+using TheChecklist.Interfaces;
 using UnityEngine;
 using Zenject;
 

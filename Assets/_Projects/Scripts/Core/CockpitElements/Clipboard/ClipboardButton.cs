@@ -5,7 +5,7 @@ using TheChecklist.Core.Data;
 using TheChecklist.Interfaces;
 using UnityEngine;
 
-namespace TheChecklist.Core.Clipboard
+namespace TheChecklist.Core.CockpitElements
 {
     public class ClipboardButton : MonoBehaviour, IInteractable
     {

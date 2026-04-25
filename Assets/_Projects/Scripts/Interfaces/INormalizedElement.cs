@@ -1,6 +1,6 @@
 using System;
 
-namespace TheChecklist.Installers
+namespace TheChecklist.Interfaces
 {
     public interface INormalizedElement
     {

@@ -2,15 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using TheChecklist.Interfaces;
 using UnityEngine;
-using TheChecklist.Installers;
 
 namespace TheChecklist.Core.CockpitElements
 {
     public class Button : BaseCockpitElement, IToggleableElement
     {
-        private Vector3 _startLocalPositon;
-        private Vector3 _targetLocalPositon;
+        private Vector3 _startLocalPosition;
+        private Vector3 _targetLocalPosition;
     
         public bool IsActive => _isActive;
         public event Action<bool> OnStateChanged;
@@ -18,8 +18,8 @@ namespace TheChecklist.Core.CockpitElements
         protected override void Awake()
         {
             base.Awake();
-            _startLocalPositon = transform.localPosition;
-            if(_elementData != null)  _targetLocalPositon = _elementData.TargetPosition;
+            _startLocalPosition = transform.localPosition;
+            if(_elementData != null)  _targetLocalPosition = _elementData.TargetPosition;
         }
         public override void OnInteract()
         {
@@ -35,7 +35,7 @@ namespace TheChecklist.Core.CockpitElements
 
         private void AnimateButton()
         {
-            Vector3 finalPositionZ = _isActive ? _targetLocalPositon : _startLocalPositon;
+            Vector3 finalPositionZ = _isActive ? _targetLocalPosition : _startLocalPosition;
 
             transform.DOLocalMove(finalPositionZ,  _elementData.AnimationDuration).SetEase(Ease.Linear);
         }

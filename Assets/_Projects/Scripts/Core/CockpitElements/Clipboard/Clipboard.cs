@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using DG.Tweening;
-using TheChecklist.Core.Clipboard;
+using TheChecklist.Core.CockpitElements;
 using TheChecklist.Core.Managers;
 using TMPro;
 using UnityEngine;

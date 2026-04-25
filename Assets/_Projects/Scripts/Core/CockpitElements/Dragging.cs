@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-using TheChecklist.Installers;
+using TheChecklist.Interfaces;
 
 namespace TheChecklist.Core.CockpitElements
 {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class DraggingTest
 {
     [Test]
-    public void Dragging_ShouldReturnCorrentNormalizedValue()
+    public void Dragging_ShouldReturnCorreсtNormalizedValue()
     {
         var testData = ScriptableObject.CreateInstance<CockpitElementData>();
 

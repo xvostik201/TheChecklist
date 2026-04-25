@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
 using TheChecklist.Core.Data;
-using TheChecklist.Installers;
+using TheChecklist.Infrastructure;
+using TheChecklist.Interfaces;
 using UnityEngine;
 using Zenject;
 
@@ -68,12 +69,12 @@ namespace TheChecklist.Core.Managers
             if (element is IToggleableElement toggleable)
             {
                 _currentToggleableElement = toggleable;
-                toggleable.OnStateChanged += OnElementChanged;
+                toggleable.OnStateChanged += HandleStepCompletion;
             }
             else if (element is INormalizedElement normalizedElement)
             {
                 _currentNormalizedElement = normalizedElement;
-                normalizedElement.OnValueChanged += OnElementValueChanged;
+                normalizedElement.OnValueChanged += EvaluateStepProgress;
             }
             
             OnStateChanged?.Invoke();
@@ -81,14 +82,14 @@ namespace TheChecklist.Core.Managers
             Debug.Log($"<color=cyan><b>Subscribed to checklist step {_checklistSteps[_currentStepIndex].Description}</b></color>");
         }
     
-        private void OnElementChanged(bool newState)
+        private void HandleStepCompletion(bool newState)
         {
             var currentStep = CurrentStep;
                 if (CurrentStep != null && newState == currentStep.RequiredState)
                     CompleteStep(); 
         }
     
-        private void OnElementValueChanged(float newValue)
+        private void EvaluateStepProgress(float newValue)
         {
             if (CurrentStep != null)
             {
@@ -116,8 +117,8 @@ namespace TheChecklist.Core.Managers
     
         private void Unsubscribe()
         {
-            if(_currentToggleableElement != null) _currentToggleableElement.OnStateChanged -= OnElementChanged;
-            if(_currentNormalizedElement != null) _currentNormalizedElement.OnValueChanged -= OnElementValueChanged;
+            if(_currentToggleableElement != null) _currentToggleableElement.OnStateChanged -= HandleStepCompletion;
+            if(_currentNormalizedElement != null) _currentNormalizedElement.OnValueChanged -= EvaluateStepProgress;
     
             _currentToggleableElement = null;
             _currentNormalizedElement = null;
