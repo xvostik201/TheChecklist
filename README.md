@@ -49,11 +49,14 @@ Complete visual overhaul, detailed environment, interactive clipboard with pagin
 
 ### 🎬 Demonstrations
 
-#### Interactive Gameplay
+<div align="center">
+
 ![Demo 1](https://github.com/xvostik201/TheChecklist/raw/main/Assets/_Project/Documentation/MainGif0.gif)
 ![Demo 2](https://github.com/xvostik201/TheChecklist/raw/main/Assets/_Project/Documentation/MainGif1.gif)
 
-Real-time cockpit interaction showcasing smooth animations, element feedback, and checklist progression.
+*Real-time cockpit interaction showcasing smooth animations, element feedback, and checklist progression.*
+
+</div>
 
 ---
 
@@ -72,19 +75,43 @@ Real-time cockpit interaction showcasing smooth animations, element feedback, an
 
 #### **Cockpit Elements**
 
+<div align="center">
+
 **Button** — Interactive button with press animation and state toggle
+
 ![Button](https://github.com/xvostik201/TheChecklist/raw/main/Assets/_Project/Documentation/Button.png)
+
+</div>
+
 Fully configurable via `CockpitElementData` with customizable press depth and animation duration.
 
+---
+
+<div align="center">
+
 **Lever** — Rotatable lever that can be toggled on/off with smooth animation
+
 ![Lever](https://github.com/xvostik201/TheChecklist/raw/main/Assets/_Project/Documentation/Lever.png)
+
+</div>
+
 Supports target rotation angles with easing curves for realistic mechanical feedback.
 
+---
+
+<div align="center">
+
 **Dragging** — Normalized dragging handle with min/max rotation constraints
+
 ![Drag](https://github.com/xvostik201/TheChecklist/raw/main/Assets/_Project/Documentation/Drag.png)
+
+</div>
+
 Produces normalized values (0-1) perfect for throttle controls and proportional inputs.
 
-**Clipboard** — Interactive clipboard with checklist display and pagination
+---
+
+**Clipboard** — Interactive clipboard with checklist display and pagination  
 Digital checklist showing completed (green), current (red), and upcoming (yellow) steps with page navigation.
 
 ---
@@ -120,35 +147,56 @@ Digital checklist showing completed (green), current (red), and upcoming (yellow
 
 ### 📸 Configuration Examples
 
+<div align="center">
+
 #### Audio System Configuration
 ![Audio Data](https://github.com/xvostik201/TheChecklist/raw/main/Assets/_Project/Documentation/AudioDataSO.png)
-Centralized audio clip management with volume and pitch settings per element.
+
+*Centralized audio clip management with volume and pitch settings per element.*
 
 #### Checklist Step Configuration
 ![Checklist Step](https://github.com/xvostik201/TheChecklist/raw/main/Assets/_Project/Documentation/ChecklistStepSO.png)
-Element-specific step configuration with required state/value and persistence settings.
+
+*Element-specific step configuration with required state/value and persistence settings.*
 
 #### Timeline for Cinematic Sequence
 ![Timeline](https://github.com/xvostik201/TheChecklist/raw/main/Assets/_Project/Documentation/CompleteChecklistTimeline.png)
-Unity Timeline setup for smooth cinematic sequence triggered on checklist completion.
+
+*Unity Timeline setup for smooth cinematic sequence triggered on checklist completion.*
+
+</div>
 
 ---
 
 ### 🚁 Aircraft Gallery
 
+<div align="center">
+
 #### F4 Phantom (Default State)
 ![F4 Phantom](https://github.com/xvostik201/TheChecklist/raw/main/Assets/_Project/Documentation/F4Phantom.png)
+
 Cold cockpit with all systems offline, ready for pre-flight checklist.
 
 #### F4 Phantom (Powered Up)
 ![F4 Phantom Powered](https://github.com/xvostik201/TheChecklist/raw/main/Assets/_Project/Documentation/F4PhantomPowered.png)
+
 Aircraft with power systems activated, all cockpit elements illuminated and ready for engine startup.
+
+</div>
 
 ---
 
 ### 🎮 How to Play
 
+<div align="center">
+
 ![Main Menu](https://github.com/xvostik201/TheChecklist/raw/main/Assets/_Project/Documentation/MainMenuScene.png)
+
+**Select Your Aircraft**
+- 🛩️ **F4 Phantom** → Carrier-based fighter jet
+- ✈️ **Boeing** → Commercial airliner
+
+</div>
 
 **Game Controls:**
 1. **Left Mouse Button** — Interact with cockpit elements
@@ -168,17 +216,24 @@ Aircraft with power systems activated, all cockpit elements illuminated and read
 
 ### 🧪 Testing & Debugging
 
+<div align="center">
+
 #### Normalized Value Testing
 ![Normalized Test](https://github.com/xvostik201/TheChecklist/raw/main/Assets/_Project/Documentation/NormalizedTest.png)
-NUnit unit tests verify normalized value calculations for dragging mechanics.
+
+*NUnit unit tests verify normalized value calculations for dragging mechanics.*
 
 #### Checklist Debug Log
 ![Debug Log](https://github.com/xvostik201/TheChecklist/raw/main/Assets/_Project/Documentation/ChecklistDebugLog.png)
-Real-time console output showing all registered checklist steps and their target elements.
+
+*Real-time console output showing all registered checklist steps and their target elements.*
 
 #### Rollback Mechanism
 ![Rollback Log](https://github.com/xvostik201/TheChecklist/raw/main/Assets/_Project/Documentation/DebugRollbackLog.png)
-Detailed logging of rollback events when persistent steps are violated, with step index and descriptions.
+
+*Detailed logging of rollback events when persistent steps are violated, with step index and descriptions.*
+
+</div>
 
 ---
 
