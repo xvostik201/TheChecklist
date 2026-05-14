@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Projects/Scenes/SampleScene.unity
+    path: Assets/_Project/Scenes/MenuScene.unity
+    guid: 091b554d40cd1db46868551c1cb024e8
+  - enabled: 1
+    path: Assets/_Project/Scenes/BoeingScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/_Projects/Scenes/CreditsScene.unity
+    path: Assets/_Project/Scenes/F4PhantomScene.unity
+    guid: 868b43d7ff9fe7244a8fc5aa71b598df
+  - enabled: 1
+    path: Assets/_Project/Scenes/CreditsScene.unity
     guid: 63f19a191e555ba4cb89cb8299c4682a
   m_configObjects: {}
