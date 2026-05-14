@@ -378,7 +378,7 @@ cd TheChecklist
 ```
 
 **Option 2: Download Release**
-Download: [TheChecklist_v1.0-takeoff-demo.rar](https://github.com/xvostik201/TheChecklist/releases/tag/v0.1-takeoff-demo)
+Download: [TheChecklist_v0.2](https://github.com/xvostik201/TheChecklist/releases/tag/v0.2_phantom_scene)
 
 Extract and run the `.exe` directly, or:
 
